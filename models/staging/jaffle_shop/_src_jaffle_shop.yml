@@ -4,7 +4,19 @@ sources:
     schema: jaffle_shop
     tables:
       - name: customers
+        columns:
+          - name: id
+            description: primary key
+            data_tests:
+              - unique
+              - not_null 
       - name: orders
+        columns:
+          - name: id
+            description: primary key
+            data_tests:
+              - unique
+              - not_null 
         config:
           freshness:
             warn_after:
@@ -13,4 +25,4 @@ sources:
             error_after: 
               count: 1
               period: day
-          # loaded_at_field: _etl_loaded_at
+          loaded_at_field: _etl_loaded_at
